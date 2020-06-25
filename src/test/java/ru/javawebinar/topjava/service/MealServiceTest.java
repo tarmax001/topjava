@@ -11,22 +11,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
-<<<<<<< HEAD
-import sun.security.provider.MD2;
 
 import java.util.List;
-=======
->>>>>>> origin/HW3
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
-<<<<<<< HEAD
 import static ru.javawebinar.topjava.MealTestData.*;
-=======
-import static ru.javawebinar.topjava.MealTestData.MEAL_1;
-import static ru.javawebinar.topjava.MealTestData.MEAL_1_ID;
->>>>>>> origin/HW3
 import static ru.javawebinar.topjava.UserTestData.*;
 
 @ContextConfiguration({
@@ -71,16 +62,12 @@ public class MealServiceTest {
 
     @Test
     public void getBetweenInclusive() {
-<<<<<<< HEAD
         List<Meal> meals = service.getBetweenInclusive(LOCAL_DATE_FROM, LOCAL_DATE_TO, USER_ID);
         assertThat(meals).containsExactly(MEAL_3, MEAL_2, MEAL_1);
-=======
->>>>>>> origin/HW3
     }
 
     @Test
     public void getAll() {
-<<<<<<< HEAD
         List<Meal> meals = service.getAll(USER_ID);
         assertThat(meals).containsExactly(MEAL_7, MEAL_6, MEAL_5, MEAL_3, MEAL_2, MEAL_1);
     }
@@ -105,20 +92,5 @@ public class MealServiceTest {
     public void updateNotFound() {
         Meal updatedMeal = getUpdatedMeal();
         assertThrows(NotFoundException.class, () -> service.update(updatedMeal, ADMIN_ID));
-=======
-    }
-
-    @Test
-    public void update() {
-    }
-
-    @Test
-    public void create() {
-
-    }
-
-    @Test
-    public void createNotFound() {
->>>>>>> origin/HW3
     }
 }
