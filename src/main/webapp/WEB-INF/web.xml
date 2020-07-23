@@ -26,4 +26,9 @@
         <url-pattern>/meals</url-pattern>
     </servlet-mapping>
 
+<!--    <context-param>-->
+<!--        <param-name>spring.profiles.active</param-name>-->
+<!--        <param-value>hsqldb, jdbc</param-value>-->
+<!--    </context-param>-->
+
 </web-app>
