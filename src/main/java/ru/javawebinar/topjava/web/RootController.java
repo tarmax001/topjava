@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class RootController {
+
     @Autowired
     private UserService service;
 
