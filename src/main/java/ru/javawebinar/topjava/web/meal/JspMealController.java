@@ -89,7 +89,6 @@ public class JspMealController {
                 request.getParameter("description"),
                 Integer.parseInt(request.getParameter("calories")));
 
-        String id = request.getParameter("id");
         if (StringUtils.isEmpty(request.getParameter("id"))) {
             log.info("create {} for user {}", meal, userId);
             mealService.create(meal, userId);
