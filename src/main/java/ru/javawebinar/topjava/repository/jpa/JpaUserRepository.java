@@ -1,10 +1,13 @@
 package ru.javawebinar.topjava.repository.jpa;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
+import ru.javawebinar.topjava.web.meal.JspMealController;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,6 +16,7 @@ import java.util.List;
 @Repository
 @Transactional(readOnly = true)
 public class JpaUserRepository implements UserRepository {
+    private static final Logger log = LoggerFactory.getLogger(JpaUserRepository.class);
 
 /*
     @Autowired
@@ -62,6 +66,7 @@ public class JpaUserRepository implements UserRepository {
         List<User> users = em.createNamedQuery(User.BY_EMAIL, User.class)
                 .setParameter(1, email)
                 .getResultList();
+        log.info("Users by email are {}", users);
         return DataAccessUtils.singleResult(users);
     }
 
