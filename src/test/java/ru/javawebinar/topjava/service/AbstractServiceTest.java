@@ -6,6 +6,9 @@ import org.junit.rules.ExternalResource;
 import org.junit.rules.Stopwatch;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.support.NoOpCacheManager;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -38,6 +41,12 @@ abstract public class AbstractServiceTest {
 
     @Rule
     public Stopwatch stopwatch = TimingRules.STOPWATCH;
+
+    /** * Disabling cache for integration test */
+    @Bean
+    public CacheManager cacheManager() {
+        return new NoOpCacheManager();
+    }
 
     //  Check root cause in JUnit: https://github.com/junit-team/junit4/pull/778
     public <T extends Throwable> void validateRootCause(Runnable runnable, Class<T> rootExceptionClass) {
