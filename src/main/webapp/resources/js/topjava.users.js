@@ -40,3 +40,20 @@ $(function () {
         }
     );
 });
+
+function updateTable() {
+    $.get(context.ajaxUrl, function (data) {
+        context.datatableApi.clear().rows.add(data).draw();
+    });
+}
+
+function changeActive(id, value) {
+    $.ajax({
+        type: "POST",
+        url: context.ajaxUrl + "enable",
+        data: {id: id, value: value}
+    }).done(function () {
+        updateTable();
+        successNoty("Updated");
+    });
+}
